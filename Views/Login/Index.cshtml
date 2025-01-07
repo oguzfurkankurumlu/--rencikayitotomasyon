@@ -1,0 +1,48 @@
+@{
+    Layout = null; // Giriş sayfası için layout kullanmıyoruz
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mt-5">Yaz Okulu Ders Kayıt Sistemi Giriş Paneli</h2>
+        <br>
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+
+        <form method="post">
+            <div class="form-group">
+                <label for="mail">E-posta</label>
+                <input type="email" id="mail" name="mail" class="form-control" required />
+                <span class="user-info">(aliyildiz@gmail.com)</span>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" name="password" class="form-control" required />
+                 <span class="user-info">(1010)</span>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary">Giriş Yap</button>
+        </form>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
