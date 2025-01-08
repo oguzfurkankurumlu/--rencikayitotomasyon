@@ -11,34 +11,34 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Yaz Okulu Ders Kayıt</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <a class="navbar-brand" href="#">Yaz Okulu Ders Kayıt</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Ana Sayfa</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Öğrenciler</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Öğretmenler</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Dersler</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Kontenjanlar</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Yardım</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index">Öğrenciler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Teachers" asp-action="Index">Öğretmenler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Lessons" asp-action="Index">Dersler</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Quotas" asp-action="Index">Kontenjanlar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Help">Yardım</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
     <div class="container">
         <main role="main" class="pb-3">

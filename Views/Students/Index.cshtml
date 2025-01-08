@@ -1,0 +1,28 @@
+@model List<summerschool.DMO.TableStudent>
+
+<h1>Öğrenciler</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Numara</th>
+            <th>E-posta</th>
+            <th>Bakiye</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Stid</td>
+                <td>@student.Stname</td>
+                <td>@student.Stlastname</td>
+                <td>@student.Stnumber</td>
+                <td>@student.Stmail</td>
+                <td>@student.Stbalance</td>
+            </tr>
+        }
+    </tbody>
+</table>
