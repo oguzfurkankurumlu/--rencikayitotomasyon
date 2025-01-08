@@ -315,3 +315,4 @@ C:\Users\oguzf\Desktop\projects\öğrencikayitotomasyon\bin\Debug\net9.0\runtime
 C:\Users\oguzf\Desktop\projects\öğrencikayitotomasyon\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\oguzf\Desktop\projects\öğrencikayitotomasyon\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\oguzf\Desktop\projects\öğrencikayitotomasyon\obj\Debug\net9.0\summersc.140F58B0.Up2Date
+c:\Users\oguzf\Desktop\projects\öğrencikayitotomasyon\obj\Debug\net9.0\summerschool.sourcelink.json

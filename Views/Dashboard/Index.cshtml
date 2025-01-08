@@ -1,0 +1,100 @@
+@model DashboardViewModel
+
+<h1>Dashboard</h1>
+<p>Hoş geldiniz!</p>
+
+<!-- Öğrenciler Tablosu -->
+<h2>Öğrenciler</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Numara</th>
+            <th>E-posta</th>
+            <th>Bakiye</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Stid</td>
+                <td>@student.Stname</td>
+                <td>@student.Stlastname</td>
+                <td>@student.Stnumber</td>
+                <td>@student.Stmail</td>
+                <td>@student.Stbalance</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Dersler Tablosu -->
+<h2>Dersler</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ders Adı</th>
+            <th>Maksimum Kota</th>
+            <th>Minimum Kota</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model.Lessons)
+        {
+            <tr>
+                <td>@lesson.Lsid</td>
+                <td>@lesson.Lsname</td>
+                <td>@lesson.Lsmaxquota</td>
+                <td>@lesson.Lsminquota</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Öğretmenler Tablosu -->
+<h2>Öğretmenler</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad Soyad</th>
+            <th>Branş ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model.Teachers)
+        {
+            <tr>
+                <td>@teacher.Tchrid</td>
+                <td>@teacher.Tchnamelastname</td>
+                <td>@teacher.Tchrbranch</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Form Başvuruları Tablosu -->
+<h2>Form Başvuruları</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Form ID</th>
+            <th>Öğrenci ID</th>
+            <th>Ders ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var form in Model.FormApplies)
+        {
+            <tr>
+                <td>@form.Formid</td>
+                <td>@form.Stid</td>
+                <td>@form.Lsid</td>
+            </tr>
+        }
+    </tbody>
+</table>

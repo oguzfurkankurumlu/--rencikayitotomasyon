@@ -24,7 +24,7 @@ public class LoginController : Controller
         if (user != null)
         {
             // Giriş başarılı, yönlendirme yapılabilir
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
         else
         {
