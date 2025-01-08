@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using summerschool.DMO;
+using summerschool.DTO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<UserLoginRepository>();
 builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<StudentService>();  // StudentService sınıfını DI container'a ekle
+builder.Services.AddScoped<IStudentService, StudentService>(); // IStudentService ve StudentService'i DI konteynerine ekleyin
+
+
 
 
 

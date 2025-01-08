@@ -1,47 +1,64 @@
 using Microsoft.AspNetCore.Mvc;
 using summerschool.DMO;
-using System.Linq;
+using summerschool.DTO;
 
 public class StudentsController : Controller
 {
-    private readonly SummerSchoolContext _context;
+    private readonly IStudentService _studentService; // IStudentService ile iletişim kuracağız
 
-    public StudentsController(SummerSchoolContext context)
+    // Constructor ile IStudentService enjekte et
+    public StudentsController(IStudentService studentService)
     {
-        _context = context;
+        _studentService = studentService; // IStudentService'yi al
     }
 
-
-    // Yeni öğrenci ekleme formu için
+    // Yeni öğrenci ekleme formu
     public IActionResult AddStudent()
     {
         return View();
     }
 
-    // Yeni öğrenci ekleme işlemi için (HTTP POST)
+    // Yeni öğrenci ekleme işlemi (HTTP POST)
     [HttpPost]
-    public IActionResult AddStudent(TableStudent newStudent)
+    public IActionResult AddStudent(StudentDTO newStudent)
     {
         if (ModelState.IsValid)
         {
-            _context.TableStudents.Add(newStudent); // Öğrenciyi veritabanına ekler
-            _context.SaveChanges(); // Değişiklikleri kaydeder
-            return RedirectToAction("Index"); // Listeleme sayfasına yönlendirir
+            var success = _studentService.AddStudent(newStudent); // Servis katmanına delegasyon
+            if (success)
+                return RedirectToAction("Index"); // Listeleme sayfasına yönlendir
+            else
+                ModelState.AddModelError("", "Öğrenci eklenemedi.");
         }
-
         return View(newStudent); // Hatalı formu tekrar göster
     }
 
-    public IActionResult StudentTable()
+    // Öğrenci silme işlemi
+    [HttpPost]
+    public IActionResult DeleteStudent(int id)
     {
-        var students = _context.TableStudents.ToList(); // Tüm öğrencileri al
-        return View(students); // StudentTable.cshtml sayfasına gönder
+        if (_studentService.DeleteStudent(id)) // Servis katmanında silme işlemi
+        {
+            return RedirectToAction("Index");
+        }
+        return Json(new { success = false, message = "Öğrenci bulunamadı." });
     }
 
+    // Öğrenciye bakiye ekleme işlemi
+    [HttpPost]
+    public IActionResult AddBalance(int id, decimal amount)
+    {
+        if (_studentService.AddBalance(id, amount)) // Servis katmanına delegasyon
+        {
+            return RedirectToAction("Index");
+        }
+        return Json(new { success = false, message = "Öğrenci bulunamadı." });
+    }
 
+    // Öğrenci listesi
     public IActionResult Index()
     {
-        var students = _context.TableStudents.ToList();
-        return View(students);
+        var students = _studentService.GetAllStudents(); // Servisten tüm öğrencileri al
+        return View(students); // Öğrenci listesine gönder
     }
 }
