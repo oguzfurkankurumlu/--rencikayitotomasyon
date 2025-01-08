@@ -1,0 +1,37 @@
+@model summerschool.DMO.TableStudent
+
+<h1>Yeni Öğrenci Ekle</h1>
+<form method="post" asp-action="AddStudent">
+    <div class="form-group">
+        <label for="Stname">Ad</label>
+        <input type="text" id="Stname" name="Stname" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Stlastname">Soyad</label>
+        <input type="text" id="Stlastname" name="Stlastname" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Stnumber">Numara</label>
+        <input type="text" id="Stnumber" name="Stnumber" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Stmail">E-posta</label>
+        <input type="email" id="Stmail" name="Stmail" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Stpassword">Şifre</label>
+        <input type="password" id="Stpassword" name="Stpassword" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Stbalance">Bakiye</label>
+        <input type="number" id="Stbalance" name="Stbalance" class="form-control" value="0" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Öğrenci Ekle</button>
+    <a class="btn btn-secondary" asp-action="Index">Geri Dön</a>
+</form>

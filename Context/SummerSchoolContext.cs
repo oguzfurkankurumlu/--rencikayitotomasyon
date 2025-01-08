@@ -23,6 +23,7 @@ public partial class SummerSchoolContext : DbContext
 
     public virtual DbSet<TableTeacher> TableTeachers { get; set; }
 
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
 

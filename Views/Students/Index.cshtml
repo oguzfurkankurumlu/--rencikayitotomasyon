@@ -1,4 +1,4 @@
-@model List<summerschool.DMO.TableStudent>
+@model IEnumerable<summerschool.DMO.TableStudent>
 
 <h1>Öğrenciler</h1>
 <table class="table table-bordered">
@@ -29,7 +29,7 @@
 
 <!-- Sağ üst köşeye hizalanmış butonlar -->
 <div class="button-group mt-3 d-flex justify-content-end">
-    <button type="button" class="btn btn-primary mx-2">Öğrenci Ekle</button>
+    <a class="btn btn-primary" href="@Url.Action("AddStudent", "Students")">Yeni Öğrenci Ekle</a>
     <button type="button" class="btn btn-danger mx-2">Öğrenci Sil</button>
     <button type="button" class="btn btn-success mx-2">Bakiye Ekle</button>
 </div>
